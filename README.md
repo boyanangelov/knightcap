@@ -2,6 +2,10 @@
 
 A tiny macOS menu-bar app that opens [Lichess](https://lichess.org) puzzles in a small floating window: one click (or **⌥⌘P**) and you're solving.
 
+![Opening Knightcap from the menu bar, solving the Lichess daily puzzle, then switching to Puzzle Storm](docs/menu-demo.gif)
+
+([MP4 version](docs/menu-demo.mp4))
+
 ## Why
 
 I wanted a quick puzzle or two between tasks without opening a browser, finding the tab and losing ten minutes on the home page. Knightcap keeps Lichess one click away in the menu bar, in a square window that floats above your work and hides again when you're done. A puzzle in progress keeps its place while the window is hidden.
