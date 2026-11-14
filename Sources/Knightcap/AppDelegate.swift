@@ -54,7 +54,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
-        menu.addItem(NSMenuItem(title: "Quit ChessBar", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit Knightcap", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
         statusItem.menu = menu
         statusItem.button?.performClick(nil)
@@ -82,7 +82,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             return true
         }
         img.isTemplate = true
-        img.accessibilityDescription = "ChessBar"
+        img.accessibilityDescription = "Knightcap"
         return img
     }
 
@@ -105,7 +105,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             let alert = NSAlert()
             alert.messageText = "Couldn't change Start at Login"
             alert.informativeText = error.localizedDescription
-                + "\n\nTip: move ChessBar.app to /Applications first."
+                + "\n\nTip: move Knightcap.app to /Applications first."
             alert.runModal()
         }
     }

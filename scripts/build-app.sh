@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
-# Build ChessBar.app with swiftc directly (no Xcode or SwiftPM needed).
+# Build Knightcap.app (Apple Silicon, macOS 13+) with swiftc.
+# Needs only the Xcode Command Line Tools; no Xcode or SwiftPM.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-APP=ChessBar.app
-rm -rf "$APP" .build/chessbar
-mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" .build/chessbar
+APP=Knightcap.app
+TMP=.build/knightcap
+rm -rf "$APP" "$TMP"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$TMP"
 
 swiftc -O -swift-version 5 \
-  -target "$(uname -m)-apple-macos13.0" \
+  -target arm64-apple-macos13.0 \
   -framework AppKit -framework SwiftUI -framework WebKit -framework Carbon -framework ServiceManagement \
-  -module-cache-path .build/chessbar/cache \
-  Sources/ChessBar/*.swift \
-  -o "$APP/Contents/MacOS/ChessBar"
+  -module-cache-path "$TMP/cache" \
+  Sources/Knightcap/*.swift \
+  -o "$APP/Contents/MacOS/Knightcap"
 
 cp Resources/Info.plist "$APP/Contents/Info.plist"
-codesign --force --sign - "$APP" >/dev/null
+codesign --force --sign - "$APP" >/dev/null 2>&1
 echo "Built $(pwd)/$APP"

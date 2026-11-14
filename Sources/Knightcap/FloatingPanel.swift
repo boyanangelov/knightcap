@@ -9,7 +9,7 @@ final class FloatingPanel: NSPanel {
             backing: .buffered,
             defer: false
         )
-        title = "ChessBar"
+        title = "Knightcap"
         titleVisibility = .hidden
         titlebarAppearsTransparent = true
         level = .floating
@@ -22,8 +22,8 @@ final class FloatingPanel: NSPanel {
         aspectRatio = NSSize(width: 1, height: 1) // keep the window square while resizing
         minSize = NSSize(width: 360, height: 360)
         self.contentView = contentView
-        if !setFrameUsingName("ChessBarPanelSquare") { center() }
-        setFrameAutosaveName("ChessBarPanelSquare")
+        if !setFrameUsingName("KnightcapPanel") { center() }
+        setFrameAutosaveName("KnightcapPanel")
     }
 
     override var canBecomeKey: Bool { true }
